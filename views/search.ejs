@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Crime Analysis Website</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+	<script src="jquery-1.11.1.min.js"></script>
+	
+	<script language="javascript">
+	function choicetest(name,num){
+		var choicearr = document.getElementsByName(name);
+		var a=0;
+		for(var i=0;i<choicearr.length;i++)
+			if(choicearr[i].checked){
+				a=a+1;	
+			}
+		if(a==num){
+			for(var i=0;i<choicearr.length;i++)
+				if(!choicearr[i].checked)
+					choicearr[i].disabled='disabled';
+		}else{
+			for(var i=0;i<choicearr.length;i++)
+				choicearr[i].removeAttribute('disabled');
+		}
+	}
+	</script>
+	
+	
+</head>
+<body>
+
+	<header>
+		<div class="logo">
+			<a href="/"><h2>Crime Analysis</h2></a>
+		</div><!-- end logo -->
+
+		<div id="menu_icon"></div>
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/search">Search</a></li>
+				<li><a href="/view_trend">View Trend</a></li>
+				<li><a href="/view_pie">View Pie</a></li>
+				<li><a href="/summary">Summary</a></li>
+			</ul>
+		</nav><!-- end navigation menu -->
+
+	</header><!-- end header -->
+
+	<section class="main clearfix">
+
+		<section class="topsearch">	
+			<div class="wrapper content_header clearfix">
+				<div class="work_nav">
+							
+					<ul class="btn clearfix">
+						
+						<li><a href="/" class="grid" data-title="Home"></a></li>
+						<li><a href="/view_trend" class="next" data-title="Next"></a></li>
+					</ul>							
+					
+				</div><!-- end work_nav -->
+				<h1 class="title">choose options to view histogram</h1>
+			</div>		
+		</section><!-- end top -->
+
+		<section class="wrapper">
+			<div class="content">
+				<h2>YEAR</h2>
+				<p>
+					<input type="radio" name="year" value="2018" form = "testform"/> 2018
+					&nbsp;
+					<input type="radio" name="year" value="2017" form = "testform"/> 2017
+					&nbsp;
+					<input type="radio" name="year" value="2016" form = "testform"/> 2016
+				</p>
+				
+				<h2>NATIONALITY</h2>
+				<p>
+					
+					<input type="checkbox" name="race" value="Black" form = "testform"/> Black
+					&nbsp;
+					<input type="checkbox" name="race" value="Chinese" form = "testform"/> Chinese
+					&nbsp;
+					<input type="checkbox" name="race" value="Hispanic/Latin/Mexican" form = "testform"/> Hispanic/Latin/Mexican
+					&nbsp;
+					<input type="checkbox" name="race" value="Korean" form = "testform"/> Korean
+					&nbsp;
+					<input type="checkbox" name="race" value="Other" form = "testform"/> Other
+					&nbsp;
+					<input type="checkbox" name="race" value="Other Asian" form = "testform"/> Other Asian
+					&nbsp;
+					<input type="checkbox" name="race" value="White" form = "testform"/> White
+					<br/>
+					(choose 5 options)
+					
+				</p>
+				<br/>
+				<br/>
+				<form action="/race" method="get" id="testform">
+				<button name = sub>Submit</button>
+				<script type="text/javascript">
+					$("button[name=sub]").click(function(){
+						var len = $("input:checkbox:checked").length;
+						if (len < 5){
+						alert("Error! Please choose 5 choices for CRIME DESCRIPTION!");}
+					})
+				</script>
+				
+				</form>	
+
+			
+			
+			
+			</div><!-- end content -->
+		</section>
+	</section><!-- end main -->
+	
+</body>
+</html>

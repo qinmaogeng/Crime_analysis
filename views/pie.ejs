@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Crime Analysis Website</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+	
+	
+	
+</head>
+<body>
+
+	<header>
+		<div class="logo">
+			<a href="/"><h2>Crime Analysis</h2></a>
+		</div><!-- end logo -->
+
+		<div id="menu_icon"></div>
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/search">Search</a></li>
+				<li><a href="/view_trend">View Trend</a></li>
+				<li><a href="/view_pie">View Pie</a></li>
+				<li><a href="/summary">Summary</a></li>
+			</ul>
+		</nav><!-- end navigation menu -->
+
+	</header><!-- end header -->
+
+	<section class="main clearfix">
+
+		<section class="toppie">	
+			<div class="wrapper content_header clearfix">
+				<div class="work_nav">
+							
+					<ul class="btn clearfix">
+						<li><a href="/view_trend" class="previous" data-title="Previous"></a></li>
+						<li><a href="/" class="grid" data-title="Home"></a></li>
+						<li><a href="/summary" class="next" data-title="Next"></a></li>
+					</ul>							
+					
+				</div><!-- end work_nav -->
+				<h1 class="title">choose options to view pie</h1>
+			</div>		
+		</section><!-- end top -->
+
+		<section class="wrapper">
+			<div class="content">
+				<h2>YEAR</h2>
+				<p>
+					<input type="radio" name="year" value="2018" form = "testform"/> 2018
+					&nbsp;
+					<input type="radio" name="year" value="2017" form = "testform"/> 2017
+					&nbsp;
+					<input type="radio" name="year" value="2016" form = "testform"/> 2016
+				</p>
+				
+				<h2>AGE</h2>
+				<p>
+					<input type="radio" name="minage" value="0" form = "testform"/> 0-25
+					&nbsp;
+					<input type="radio" name="minage" value="25" form = "testform"/> 25-50
+					&nbsp;
+					<input type="radio" name="minage" value="50" form = "testform"/> 50-75
+					&nbsp;
+					<input type="radio" name="minage" value="75" form = "testform"/> 75-100
+				
+				<h2>SEX</h2>
+
+				<p>
+					<input type="radio" name="sex" value="F" form = "testform"/> Female
+					&nbsp;
+					<input type="radio" name="sex" value="M" form = "testform"/> Male
+				</p>
+				
+				<h2>Area</h2>
+				<select name="area" form = "testform">
+					<option disabled selected value> -- SELECT AN OPTION -- </option>
+					<option value="Northeast">Northeast</option>
+					<option value="Pacific">Pacific</option>
+					<option value="Hollywood">Hollywood</option>
+					<option value="N Hollywood">N Hollywood</option>
+					<option value="Rampart">Rampart</option>
+					<option value="Southeast">Southeast</option>
+					<option value="Olympic">Olympic</option>
+					<option value="West Valley">West Valley</option>
+					<option value="Van Nuys">Van Nuys</option>
+					<option value="Topanga">Topanga</option>
+					<option value="Mission">Mission</option>
+					<option value="77th Street">77th Street</option>
+					<option value="Central">Central</option>
+					<option value="Newton">Newton</option>
+					<option value="Devonshire">Devonshire</option>
+					<option value="Harbor">Harbor</option>
+					<option value="West LA">West LA</option>
+					<option value="Foothill">Foothill</option>
+					<option value="Hollenbeck">Hollenbeck</option>
+				</select>	
+					
+				<br/>
+				<br/>
+				<br/>
+				<form action="/pie" method="get" id="testform">
+				<button>Submit</button>
+				</form>	
+
+			
+			
+			
+			</div><!-- end content -->
+		</section>
+	</section><!-- end main -->
+	
+</body>
+</html>

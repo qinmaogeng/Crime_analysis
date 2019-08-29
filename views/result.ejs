@@ -1,0 +1,7 @@
+<h1>TOP 10 WEAPON OF <%= weapons.year%> </h1>
+
+<% weapons.rows.forEach(function(weapon){ %>
+	<li>WEAPON: <%= weapon.WEAPON_DESCRIPTION %> FREQUENCY: <%= weapon.FREQUENCY%> RANK: 
+            <%= weapon.RANK%></li>
+<% }); %>
+

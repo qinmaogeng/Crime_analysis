@@ -1,0 +1,73 @@
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>crime report</title>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+<div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
+<script language="JavaScript">
+$(document).ready(function() {  
+   var chart = {
+      type: 'column'
+   };
+   var title = {
+      text: 'crime report2'   
+   };
+   var subtitle = {
+      text: 'DBMS Project'  
+   };
+   var xAxis = {
+      categories: [],
+      crosshair: true
+   };
+   xAxis.categories = <%- JSON.stringify(data2.crimes) %>
+   
+   var yAxis = {
+      min: 0,
+      title: {
+         text: 'number of cases'         
+      }      
+   };
+   var tooltip = {
+      headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+      pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+         '<td style="padding:0"><b>{point.y:.1f} cases</b></td></tr>',
+      footerFormat: '</table>',
+      shared: true,
+      useHTML: true
+   };
+   var plotOptions = {
+      column: {
+         pointPadding: 0.2,
+         borderWidth: 0
+      }
+   };  
+   var credits = {
+      enabled: false
+   };
+   
+   var series= [];
+   series = <%- JSON.stringify(data2.series) %>     
+      
+   var json = {};   
+   json.chart = chart; 
+   json.title = title;   
+   json.subtitle = subtitle; 
+   json.tooltip = tooltip;
+   json.xAxis = xAxis;
+   json.yAxis = yAxis;  
+   json.series = series;
+   json.plotOptions = plotOptions;  
+   json.credits = credits;
+   $('#container').highcharts(json);
+  
+});
+</script>
+
+<form action="/" method="get">
+	<button>Return to Main Page</button>
+</form>
+</body>
+</html>

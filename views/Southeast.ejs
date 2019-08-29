@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Crime Analysis Website</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+	<script src="jquery-1.11.1.min.js"></script>
+	
+	<script language="javascript">
+	function choicetest(name,num){
+		var choicearr = document.getElementsByName(name);
+		var a=0;
+		for(var i=0;i<choicearr.length;i++)
+			if(choicearr[i].checked){
+				a=a+1;	
+			}
+		if(a==num){
+			for(var i=0;i<choicearr.length;i++)
+				if(!choicearr[i].checked)
+					choicearr[i].disabled='disabled';
+		}else{
+			for(var i=0;i<choicearr.length;i++)
+				choicearr[i].removeAttribute('disabled');
+		}
+	}
+	</script>
+</head>
+<body>
+
+	<header>
+		<div class="logo">
+			<a href="/"><h2>Crime Analysis</h2></a>
+		</div><!-- end logo -->
+
+		<div id="menu_icon"></div>
+		<nav>
+			<ul>
+				<li><a href="/" class="selected">Home</a></li>
+				<li><a href="/search">Search</a></li>
+				<li><a href="/view_trend">View Trend</a></li>
+				<li><a href="/view_pie">View Pie</a></li>
+				<li><a href="/summary">Summary</a></li>
+			</ul>
+		</nav><!-- end navigation menu -->
+	</header><!-- end header -->
+
+	<section class="main clearfix">
+
+		<section class="top">	
+			<div class="wrapper content_header clearfix">
+				<div class="work_nav">
+							
+					<ul class="btn clearfix">
+						<li><a href="/Harbor" class="previous" data-title="Previous"></a></li>
+						<li><a href="/" class="grid" data-title="Home"></a></li>
+						<li><a href="/Central" class="next" data-title="Next"></a></li>
+					</ul>							
+				</div><!-- end work_nav -->
+				
+				<input type="radio" name="area" value="Southeast" checked="checked" form = "testform"/>
+				
+				
+				<h1 class="title">choose options to view report(Southeast)</h1>
+				
+			</div>		
+		</section><!-- end top -->
+
+		<section class="wrapper">
+			<div class="content">
+			
+				<h2>AGE</h2>
+				<p>
+					<input type="radio" name="minage" value="0" form = "testform"/> 0-25
+					&nbsp;
+					<input type="radio" name="minage" value="25" form = "testform"/> 25-50
+					&nbsp;
+					<input type="radio" name="minage" value="50" form = "testform"/> 50-75
+					&nbsp;
+					<input type="radio" name="minage" value="75" form = "testform"/> 75-100
+					
+				<div onclick="choicetest('CRIME_DESCRIPTION',5)">	
+				<h2>CRIME DESCRIPTION</h2>
+				<p>
+					<input type="checkbox" name="crime" value="ROBBERY" form = "testform"/> ROBBERY
+					<br/>
+					<input type="checkbox" name="crime" value="BURGLARY" form = "testform"/> BURGLARY
+					<br/>
+					<input type="checkbox" name="crime" value="TRESPASSING" form = "testform"/> TRESPASSING
+					<br/>
+					<input type="checkbox" name="crime" value="VEHICLE - STOLEN" form = "testform"/> VEHICLE - STOLEN
+					<br/>
+					<input type="checkbox" name="crime" value="THEFT OF IDENTITY" form = "testform"/> THEFT OF IDENTITY
+					<br/>
+					<input type="checkbox" name="crime" value="BURGLARY FROM VEHICLE" form = "testform"/> BURGLARY FROM VEHICLE
+					<br/>
+					<input type="checkbox" name="crime" value="BATTERY - SIMPLE ASSAULT" form = "testform"/> BATTERY - SIMPLE ASSAULT
+					<br/>
+					<input type="checkbox" name="crime" value="INTIMATE PARTNER - SIMPLE ASSAULT10" form = "testform"/> INTIMATE PARTNER - SIMPLE ASSAULT
+					<br/>
+					<input type="checkbox" name="crime" value="CRIMINAL THREATS - NO WEAPON DISPLAYED" form = "testform"/> CRIMINAL THREATS - NO WEAPON DISPLAYED
+					<br/>
+					<input type="checkbox" name="crime" value="ASSAULT WITH DEADLY WEAPON, AGGRAVATED ASSAULT" form = "testform"/> ASSAULT WITH DEADLY WEAPON, AGGRAVATED ASSAULT
+					<br/>
+					(choose 5 options)
+					
+					<br/>
+					<form action="/crime" method="get" id="testform">
+					<button name="sub">Submit</button>
+					<script type="text/javascript">
+					$("button[name=sub]").click(function(){
+						var len = $("input:checkbox:checked").length;
+						if (len < 5){
+						alert("Error! Please choose 5 choices for CRIME DESCRIPTION!");}
+					})
+					</script>
+					</form>
+				</div>	
+					
+								
+			</div><!-- end content -->
+		</section>
+	</section><!-- end main -->
+	
+</body>
+</html>
